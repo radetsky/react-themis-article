@@ -10,7 +10,7 @@ import { KeyGen } from './components/Keygen';
 import { SecureCellWithKey } from './components/SecureCellWithKey';
 import { SecureCellWithPassphrase } from './components/SecureCellWithPass';
 import { SecureMessageSignExample } from './components/SecureMessageSign';
-import { SecureMessageEncrypt } from './components/SecureMessageEncrypt';
+import { SecureMessageEncryptExample } from './components/SecureMessageEncrypt';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ function App() {
           <Route path="/secureCellWithKey" element={<SecureCellWithKey />} />
           <Route path="/secureCellWithPassphrase" element={<SecureCellWithPassphrase />} />
           <Route path="/secureMessageSign" element={<SecureMessageSignExample />} />
-          <Route path="/secureMessageEncrypt" element={<SecureMessageEncrypt />} />
+          <Route path="/secureMessageEncrypt" element={<SecureMessageEncryptExample />} />
         </Routes>
       </Router>
     </div>
