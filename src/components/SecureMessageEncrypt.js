@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import DisplayBytes from "./subcomponents/DisplayBytes";
-import { initialize, KeyPair, SecureMessageSign, SecureMessageVerify, SecureMessage } from "wasm-themis";
+import { initialize, KeyPair, SecureMessage } from "wasm-themis";
 import { useState, useEffect } from 'react';
 import { Buffer } from 'buffer';
 import { displayBytesAsHex } from "./utils/DisplayBytesAsHex";
