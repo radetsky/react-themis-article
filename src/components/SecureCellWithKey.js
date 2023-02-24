@@ -3,8 +3,7 @@ import { Button, Container, Row, Col } from 'react-bootstrap';
 import { initialize, SecureCellSeal, SymmetricKey } from 'wasm-themis';
 import { Buffer } from 'buffer';
 import DisplayBytes from './subcomponents/DisplayBytes';
-import TextAreaWithSingleButton from './subcomponents/TextAreaWithSingleButton';
-import TextAreaDisplayBytes from './subcomponents/TextAreaDisplayBytes';
+import { displayBytesAsHex } from './utils/DisplayBytesAsHex';
 
 
 export const SecureCellWithKey = () => {
@@ -74,17 +73,15 @@ export const SecureCellWithKey = () => {
             </Row>
             <Row>
                 <Col>
-                    <TextAreaWithSingleButton
-                        text = {clearTextValue}
-                        btnLabel={"Encrypt"}
-                        textareaDisabled={false}
-                        onSubmit={ (value) => { encrypt(value, symKey) } } />
+                    <textarea className="textarea"
+                        value={ clearTextValue }
+                        onChange={ e => setClearTextValue(e.target.value) } />
+                    <Button onClick={ () => { encrypt(clearTextValue, symKey) } } variant="primary">Encrypt</Button>
                 </Col>
                 <Col>
-                    <TextAreaDisplayBytes
-                        displayBytes={ encryptedValue }
-                        btnLabel={"Decrypt"}
-                        onSubmit={ () => { decrypt(encryptedValue, symKey) } } />
+                    <textarea className="textarea" disabled={ true }
+                        value={ displayBytesAsHex(encryptedValue) } />
+                    <Button onClick={ () => { decrypt(encryptedValue, symKey) } } variant="primary">Decrypt</Button>
                 </Col>
             </Row>
         </Container>
